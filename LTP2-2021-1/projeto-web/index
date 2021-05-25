@@ -1,0 +1,117 @@
+import cherrypy
+
+
+class Ludan(object):
+    @cherrypy.expose()
+    def index(self):
+        return """
+        <!DOCTYPE html>
+        <html>
+            <head>
+            <meta charset="urf-8"/>
+            <style>
+            
+            *{
+                margin: 0px;
+                padding: 0px;
+                box-sizing: border-box;
+                font-family: 'Lato', sans-serif;
+            }
+            
+            body{
+                background-color: rgb(255, 255, 255);
+                background-image: url("imagens/bgludan2.png");
+                background-position: center;
+                background-size: cover;
+            }
+            
+            .form{
+                text-align: center;
+                padding: 20px;
+            }
+            
+            .form img{
+                max-width: 200px;
+                width: 100%;
+            }
+            
+            .form input[type=text],
+            .form input[type=email]{
+                display: block;
+                max-width: 500px;
+                width: 100%;
+                height: 30px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                margin: 5px auto;
+                padding-left: 10px;
+            }
+            
+            .form input[type=submit]{
+                cursor:pointer;
+                background-color: rgb(2, 2, 110);
+                border:none;
+                display: block;
+                max-width: 500px;
+                width: 100%;
+                height: 30px;
+                border-radius: 10px;
+                margin: 5px auto;
+                padding-left: 10px;
+                color: white;
+            
+            }
+            
+            .form input[type=email]:hover,
+            .form input[type=text]:hover{
+                animation-name: animacao_texto;
+                animation-duration: 200ms;
+                animation-play-state: inherit;
+                animation-fill-mode: both;
+            }
+            
+            .form input[type=submit]:hover{
+                animation-name: animacao_botao;
+                animation-duration: 200ms;
+                animation-play-state: inherit;
+                animation-fill-mode: both;
+            }
+            
+            @keyframes animacao_texto{
+                from{background-color: rgb(255, 255, 255);}
+                to{background-color: rgb(238, 238, 238);}
+            }
+            
+            @keyframes animacao_botao{
+                from{background-color: rgb(2, 2, 110);}
+                to{background-color: rgb(33, 33, 136);}
+            }
+
+            
+            
+            </style>
+            
+            
+            
+            
+                <link rel="preconnect" href="https://fonts.gstatic.com">
+                <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+                <link href="css\exercicio-formulario.css" rel="stylesheet" />
+                <title>Ludan Medicina</title>
+            </head>
+
+            <body>
+                <div class="form">
+                    <img src="imagens\ludannovo.png"/>
+                    <input type="text" name="nome" placeholder="Nome completo" />
+                    <input type="email" name="email" placeholder="Email" />
+                    <input type="submit" name="enviar" value="Enviar" />
+                </div> <!--form-->
+            </body>
+
+</html>     
+        """
+
+
+if __name__ == '__main__':
+    cherrypy.quickstart(Ludan())
